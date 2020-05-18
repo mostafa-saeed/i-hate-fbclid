@@ -1,0 +1,22 @@
+{
+  "name": "I Hate FBCLID",
+  "version": "1.0.0",
+  "description": "Removes fbclid links from Facebook.com",
+  "permissions": [
+    "tabs",
+    "http://*/",
+    "https://*/"
+  ],
+  "incognito" : "split",
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "manifest_version": 2,
+  "author": {
+    "name": "Mostafa Saeed",
+    "email": "mostafa.saeed543@gmail.com"
+  }
+}
