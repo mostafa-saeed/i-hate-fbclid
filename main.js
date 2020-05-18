@@ -1,5 +1,4 @@
 (function (window) {
-  if (window.FBCLIDRemoverAttached) return;
 
   const removeFBCLID = url => {
     const redirectURL = 'https://l.facebook.com';
@@ -15,15 +14,20 @@
     return url;
   };
 
-  document.addEventListener('click', e => {
+  document.addEventListener('mousedown', e => {
     const { target: tag } = e;
     const { tagName } = tag;
-    
+
     if (tagName.toLowerCase() === 'a' && tag.target.toLowerCase() === '_blank') {
       tag.href = removeFBCLID(tag.href);
     }
 
-    window.FBCLIDRemoverAttached = true;
+    const closestLink = tag.closest('a[data-lynx-uri]');
+    if (tagName.toLowerCase() === 'img' && closestLink) {
+      closestLink.href = removeFBCLID(closestLink.href);
+    }
+
   });
-})(this);
+
+})();
 

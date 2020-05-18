@@ -1,6 +1,6 @@
 {
   "name": "I Hate FBCLID",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Removes fbclid links from Facebook.com",
   "permissions": [
     "tabs",
