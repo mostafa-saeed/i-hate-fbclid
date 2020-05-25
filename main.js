@@ -34,6 +34,9 @@
     if (tagName.toLowerCase() === 'a' && tag.target.toLowerCase() === '_blank') {
       // We simply update its 'href'
       tag.href = removeFBCLID(tag.href);
+      // Disable the url manipulation by removing the element attribute
+      // Occurs during right-clicking a link. Changes the 'href' to Facebook the redirect url
+      tag.removeAttribute('data-lynx-mode');
     }
 
     // Attachment box image handler
@@ -41,6 +44,7 @@
     // Find the nearest anchor tag
     const closestLink = tag.closest('a[data-lynx-uri]');
     if (tagName.toLowerCase() === 'img' && closestLink) {
+      // We simply update its 'href'
       closestLink.href = removeFBCLID(closestLink.href);
       // Disable the url manipulation by removing the element attribute
       // Occurs during right-clicking a link. Changes the 'href' to Facebook the redirect url
